@@ -1,11 +1,11 @@
 package corsoBackEnd.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.sql.Array;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Utente {
@@ -17,6 +17,9 @@ public class Utente {
     private String cognome;
     private LocalDate dataDiNascita;
     private String numeroTessera;
+
+    @OneToMany(mappedBy = "utente",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Prestito> prestiti= new ArrayList<>();
 
     public Utente(){}
 
@@ -66,4 +69,9 @@ public class Utente {
     public void setNumeroTessera(String numeroTessera) {
         this.numeroTessera = numeroTessera;
     }
+
+    public List<Prestito> getPrestiti(){
+        return prestiti;
+    }
 }
+

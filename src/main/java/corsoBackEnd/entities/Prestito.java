@@ -2,6 +2,8 @@ package corsoBackEnd.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 @Entity
 public class Prestito {
 
@@ -12,4 +14,38 @@ public class Prestito {
     @ManyToOne
     @JoinColumn(name = "utente_id")
     private  Utente utente;
+
+    @ManyToOne
+    private  Catalogo elemntoPrestato;
+
+    private LocalDate dataInizioPrestito;
+    private LocalDate dataRestituzionePrevista;
+    private LocalDate dataRestituzioneEffettiva;
+
+    public Prestito(){}
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public Utente getUtente() {
+        return utente;
+    }
+
+    public Catalogo getElemntoPrestato() {
+        return elemntoPrestato;
+    }
+
+    public LocalDate getDataInizioPrestito() {
+        return dataInizioPrestito;
+    }
+
+    public LocalDate getDataRestituzionePrevista() {
+        return dataRestituzionePrevista;
+    }
+
+    public LocalDate getDataRestituzioneEffettiva() {
+        return dataRestituzioneEffettiva;
+    }
 }

@@ -1,18 +1,20 @@
 package corsoBackEnd;
 
-import jakarta.persistence.Entity;
+import corsoBackEnd.dao.CatalogoDao;
+import corsoBackEnd.entities.Catalogo;
+import corsoBackEnd.entities.Libro;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class Application {
-
+    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("U4-W3-D5-B-Progetto");
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("U4-W3-D5-B-Progetto");
-
         EntityManager em= emf.createEntityManager();
+        CatalogoDao ad = new CatalogoDao(em);
 
-        System.out.println("Hello World!");
+
+
 
         em.close();
         emf.close();
