@@ -24,4 +24,11 @@ public class Rivista extends Catalogo {
     public void setPeriodicita(Periodicita periodicita) {
         this.periodicita = periodicita;
     }
+
+    @Override
+    public String toString() {
+        return "Rivista{" +
+                "periodicita=" + periodicita +
+                '}';
+    }
 }

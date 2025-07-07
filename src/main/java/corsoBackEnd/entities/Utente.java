@@ -18,8 +18,6 @@ public class Utente {
     private LocalDate dataDiNascita;
     private String numeroTessera;
 
-    @OneToMany(mappedBy = "utente",cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Prestito> prestiti= new ArrayList<>();
 
     public Utente(){}
 
@@ -70,8 +68,5 @@ public class Utente {
         this.numeroTessera = numeroTessera;
     }
 
-    public List<Prestito> getPrestiti(){
-        return prestiti;
-    }
 }
 

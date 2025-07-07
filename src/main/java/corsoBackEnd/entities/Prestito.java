@@ -11,11 +11,12 @@ public class Prestito {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "utente_id")
+
+
     private  Utente utente;
 
-    @ManyToOne
+
+
     private  Catalogo elemntoPrestato;
 
     private LocalDate dataInizioPrestito;
